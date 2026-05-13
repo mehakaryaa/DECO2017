@@ -56,10 +56,10 @@ homepage was missing: somewhere that orients new members,
 surfaces featured work, and makes the community feel like a
 place rather than a database. This added one page to the
 structure and nothing to the data model.</p>
-<p><img src="../assets/post3-sitemap.png" alt="Updated sitemap with homepage">
+<p><img src="assets/post3-sitemap.png" alt="Updated sitemap with homepage">
 <em>Figure 1: Updated sitemap — homepage added between login
 and gallery. One new page, no new database tables.</em></p>
-<p><img src="../assets/post3-gallerypage_png_.png" alt="Gallery and homepage live">
+<p><img src="assets/post3-gallerypage_png_.png" alt="Gallery and homepage live">
 <em>Figure 2: Current gallery page — hero section and artwork cards
 showing, the homepage addition is planned but not yet implemented.</em></p>
 <hr>
@@ -86,7 +86,7 @@ place in the schema.</p>
 <p>The ERD did not just implement the requirements — it <strong>tested</strong>
 them. Two fields failed that test and were cut.</p>
 </blockquote>
-<p><img src="../assets/post3-erd.png" alt="ERD showing artworks annotations and users tables">
+<p><img src="assets/post3-erd.png" alt="ERD showing artworks annotations and users tables">
 <em>Figure 3: ERD — three tables, every field justified by a
 functional requirement. Upvote counter removed, timestamp
 kept for display only.</em></p>
@@ -101,14 +101,14 @@ the correct position. If the user cancels, nothing is written.</p>
 <p>One genuine decision point: submit or cancel. That simplicity
 is reassuring — the core interaction is stable enough to build
 on confidently.</p>
-<p><img src="../assets/post3-userflow.png" alt="UF1 annotation user flow">
+<p><img src="assets/post3-userflow.png" alt="UF1 annotation user flow">
 <em>Figure 4: UF1 — one decision point, two paths. HTMX partial
 update fires on submit, preserving the spatial view.</em></p>
 <hr>
 <h2>Where things stand</h2>
 <p>The annotation table is live. Coordinates are storing correctly.
 The HTMX partial is returning pins without page reload.</p>
-<p><img src="../assets/post3-artworkview.png" alt="Annotation pins live on a painting">
+<p><img src="assets/post3-artworkview.png" alt="Annotation pins live on a painting">
 <em>Figure 5: The annotation layer live — three pins anchored
 to specific regions of a painting, comment sidebar showing
 real critique with category tags. Percentage-based coordinates
