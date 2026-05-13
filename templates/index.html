@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>My Blog</title>
-    <link rel="stylesheet" href="assets/style.css">
+  <title>Critique Canvas — Dev Blog</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-main">Critique</span>
+        <span class="logo-accent">Canvas</span>
+        <span class="logo-sub">Dev Blog</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Posts</a>
+  <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
+  <main class="site-main">
+    <section class="hero">
+      <h1>Building Critique Canvas</h1>
+      <p class="hero-sub">A development blog documenting the design and
+      build of a Bla+Bla community hub - where artists receive precise,
+      spatial feedback on their work.</p>
+    </section>
 
-        <h1>Blog</h1>
+    <section class="posts-section">
+      <h2 class="section-label">All Posts</h2>
+      <ul class="post-list">
+        {{postList}}
+      </ul>
+    </section>
 
-        <ul class="post-list">
-            {{postList}}
-        </ul>
+ 
+  </main>
 
-    </main>
-
+  <footer class="site-footer">
+    <p>Mehak Arya · DECO2017 · University of Sydney · 2026</p>
+  </footer>
 </body>
-
 </html>

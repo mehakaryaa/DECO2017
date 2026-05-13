@@ -1,15 +1,14 @@
-<li>
-
-    <a href="{{slug}}.html">{{title}}</a>
-
-    <span class="date">{{date}}</span>
-
-    <span class="author">{{author}}</span>
-
-    <p class="summary">{{summary}}</p>
-
-    <ul class="tags-list">
-        {{tags}}
-    </ul>
-
+<li class="post-card">
+  <a href="{{slug}}.html" class="post-card-link">
+    <div class="post-card-inner">
+      <span class="post-number-badge">{{post_number}}</span>
+      <h3 class="post-card-title">{{title}}</h3>
+      <p class="post-card-summary">{{summary}}</p>
+      <div class="post-card-meta">
+        <span class="post-date">{{date}}</span>
+        <span class="post-author">{{author}}</span>
+      </div>
+      <div class="post-card-tags">{{tags}}</div>
+    </div>
+  </a>
 </li>

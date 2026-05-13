@@ -56,12 +56,13 @@ for (const file of fs.readdirSync(POSTS_DIR)) {
     data.tags?.map((tag) => `<span class="tag">${tag}</span>`).join("") ?? "";
 
   const page = applyTemplate(template, {
-    title: data.title,
-    date: format(new Date(data.date), "yyyy-MM-dd"),
-    author: data.author ?? "",
-    content: html,
-    tags: tagsHtml,
-  });
+  title: data.title,
+  date: format(new Date(data.date), "yyyy-MM-dd"),
+  author: data.author ?? "",
+  content: html,
+  tags: tagsHtml,
+  post_number: data.post_number ?? "",
+});
 
   fs.writeFileSync(`${DIST_DIR}/${slug}.html`, page);
 
@@ -69,7 +70,7 @@ for (const file of fs.readdirSync(POSTS_DIR)) {
 }
 
 /* Create Blog Index */
-posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+posts.sort((a, b) => new Date(a.date) - new Date(b.date));
 
 const template = fs.readFileSync("templates/index.html", "utf8");
 
@@ -92,6 +93,7 @@ const postsHtml = posts
       date: format(new Date(p.date), "yyyy-MM-dd"), // Format the date as needed
       summary: p.summary,
       tags: tagsHtml, // Replace {{tags}} with the generated tags HTML
+       post_number: p.post_number ?? "",
     });
   })
   .join(""); // Combine all <li> items into a single string
@@ -101,9 +103,6 @@ const index = applyTemplate(template, {
 });
 
 fs.writeFileSync(`${DIST_DIR}/index.html`, index);
-
-// Simple Node.js built-in method:
 fs.cpSync("assets", `${DIST_DIR}/assets`, { recursive: true });
-
-
+fs.copyFileSync(path.join("templates", "about.html"), path.join(DIST_DIR, "about.html"));
 console.log(chalk.green("✔ Build complete"));

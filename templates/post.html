@@ -9,32 +9,38 @@
 </head>
 
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-main">Critique</span>
+        <span class="logo-accent">Canvas</span>
+        <span class="logo-sub">Dev Blog</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Posts</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <h1>{{title}}</h1>
-        <p class="date">{{date}}</p>
-        <p class="author">{{author}}</p>
+  <main class="post-page">
+    <a href="index.html" class="back-link">← All posts</a>
+    <div class="post-header">
+      <p class="post-number-label">{{post_number}}</p>
+      <h1>{{title}}</h1>
+      <p class="post-meta">{{date}} · {{author}}</p>
+    </div>
+    <article>
+      {{content}}
+    </article>
+    <ul class="tags-list">
+      {{tags}}
+    </ul>
+  </main>
 
-        <hr>
-        <article>
-
-            <!-- BLOG CONTENT INSERTED HERE -->
-            {{content}}
-
-        </article>
-        <hr>
-
-        <footer>
-            <ul class="tags-list">
-                {{tags}}
-            </ul>
-        </footer>
-
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
+  <footer class="site-footer">
+    <p>Mehak Arya · DECO2017 · University of Sydney · 2026</p>
+  </footer>
 </body>
 
 </html>
