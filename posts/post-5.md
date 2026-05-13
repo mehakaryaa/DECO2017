@@ -42,7 +42,7 @@ MojoJS returns a rendered HTML fragment — just the new pin.
 React or Vue would have added client-side complexity without
 solving any requirement these two tools do not already handle.
 
-![Stack architecture diagram](../assets/post4-architecture.png)
+![Stack architecture diagram](/DECO2017/assets/post4-architecture.png)
 *Figure 1: One user click travels through four layers and
 returns as an HTML partial — canvas state preserved, no
 full page reload.*
@@ -92,16 +92,16 @@ faint paint trail. This was not in any requirements document
 static. Minimal implementation time, immediate community
 identity. Some decisions cannot be planned.
 
-![Login page with paintbrush cursor effect](../assets/post4-login.png)
+![Login page with paintbrush cursor effect](/DECO2017/assets/post4-login.png)
 *Figure 2: Login page — paintbrush cursor effect. Community
 identity communicated before a single click.*
 
-![Upload form showing file constraints](../assets/post4-upload.png)
+![Upload form showing file constraints](/DECO2017/assets/post4-upload.png)
 *Figure 3: Upload form — JPEG or PNG, max 10MB. File size
 constraint visible in the UI, connected to the persistence
 requirement.*
 
-![Annotation interaction mid-flow](../assets/post4-annotation.png)
+![Annotation interaction mid-flow](/DECO2017/assets/post4-annotation.png)
 *Figure 4: Annotation mid-flow — comment input open, category
 selector visible. HTMX fires on submit, canvas state
 preserved.*

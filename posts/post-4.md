@@ -45,11 +45,11 @@ surfaces featured work, and makes the community feel like a
 place rather than a database. This added one page to the
 structure and nothing to the data model.
 
-![Updated sitemap with homepage](../assets/post3-sitemap.png)
+![Updated sitemap with homepage](/DECO2017/assets/post3-sitemap.png)
 *Figure 1: Updated sitemap — homepage added between login
 and gallery. One new page, no new database tables.*
 
-![Gallery and homepage live](../assets/post3-gallerypage_png_.png)
+![Gallery and homepage live](/DECO2017/assets/post3-gallerypage_png_.png)
 *Figure 2: Current gallery page — hero section and artwork cards
 showing, the homepage addition is planned but not yet implemented.*
 
@@ -83,7 +83,7 @@ place in the schema.
 > The ERD did not just implement the requirements — it **tested**
 them. Two fields failed that test and were cut.
 
-![ERD showing artworks annotations and users tables](../assets/post3-erd.png)
+![ERD showing artworks annotations and users tables](/DECO2017/assets/post3-erd.png)
 *Figure 3: ERD — three tables, every field justified by a
 functional requirement. Upvote counter removed, timestamp
 kept for display only.*
@@ -103,7 +103,7 @@ One genuine decision point: submit or cancel. That simplicity
 is reassuring — the core interaction is stable enough to build
 on confidently.
 
-![UF1 annotation user flow](../assets/post3-userflow.png)
+![UF1 annotation user flow](/DECO2017/assets/post3-userflow.png)
 *Figure 4: UF1 — one decision point, two paths. HTMX partial
 update fires on submit, preserving the spatial view.*
 
@@ -114,7 +114,7 @@ update fires on submit, preserving the spatial view.*
 The annotation table is live. Coordinates are storing correctly.
 The HTMX partial is returning pins without page reload.
 
-![Annotation pins live on a painting](../assets/post3-artworkview.png)
+![Annotation pins live on a painting](/DECO2017/assets/post3-artworkview.png)
 *Figure 5: The annotation layer live — three pins anchored
 to specific regions of a painting, comment sidebar showing
 real critique with category tags. Percentage-based coordinates

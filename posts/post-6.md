@@ -37,7 +37,7 @@ consent banner, a skip link for keyboard navigation, and
 visible focus styles on all interactive elements. Whether
 these are sufficient will be confirmed through the test.
 
-![Usability test scenario](../assets/post5-usability.png)
+![Usability test scenario](/DECO2017/assets/post5-usability.png)
 *Figure 1: Task-based test — success and failure paths,
 with interface fix identified.*
 
@@ -68,10 +68,10 @@ WCAG 2.1 AA checks implemented and planned:
 - **Skip link** — appears on Tab press, jumps to main content
 - **Cookie consent** — dismissable banner, screen reader accessible with aria-live
 
-![Artwork view with accessibility considerations mapped](../assets/post5-accessibility.png)
+![Artwork view with accessibility considerations mapped](/DECO2017/assets/post5-accessibility.png)
 *Figure 2: Accessibility mapped to the real interface.*
 
-![WCAG 2.1 AA checklist](../assets/post5-wcag.png)
+![WCAG 2.1 AA checklist](/DECO2017/assets/post5-wcag.png)
 *Figure 3: Four WCAG AA checks mapped to specific interface elements.*
 
 ---
@@ -96,7 +96,7 @@ need. The EU cookie compliance requirement is addressed
 through a dismissable consent banner before any non-essential
 tracking.
 
-![Data responsibility diagram](../assets/post5-data.png)
+![Data responsibility diagram](/DECO2017/assets/post5-data.png)
 *Figure 4: Two data categories treated separately
 with different obligations.*
 
@@ -110,7 +110,7 @@ artwork without explicit permission. These are not blockers -
 they are design decisions that need answers before features
 ship.
 
-![Three secondary features planned for the homepage](../assets/post5-features.png)
+![Three secondary features planned for the homepage](/DECO2017/assets/post5-features.png)
 *Figure 5: Three features considered for the homepage —
 each with a specific responsibility concern to resolve
 before implementation.*

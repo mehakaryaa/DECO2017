@@ -68,7 +68,7 @@ cannot offer, and direct mapping to the required stack —
 coordinate storage in SQLite, inline updates via HTMX,
 server-rendered templates in MojoJS.
 
-![Concept comparison table](../assets/comparison-table.png)
+![Concept comparison table](/DECO2017/assets/comparison-table.png)
 *Figure 1: Three finalists evaluated — decision based on
 scope stability and feasibility, not creativity alone.*
 
@@ -87,7 +87,7 @@ annotations; HTMX enables live updates without page reloads.
 This shifts critique from general comments into **spatial,
 precise feedback** embedded directly within the artwork.
 
-![Annotation concept — pins anchored to specific regions](../assets/annotation-pins.png)
+![Annotation concept — pins anchored to specific regions](/DECO2017/assets/annotation-pins.png)
 *Figure 2: The core interaction — annotations anchored to
 specific regions, not floating in a comment thread below.*
 

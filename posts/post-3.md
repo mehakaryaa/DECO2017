@@ -36,7 +36,7 @@ at the correct location, attributed to who left it.
 > That is the **minimum viable loop**. Everything else is
 secondary.
 
-![Six panel storyboard — the minimum viable loop](../assets/post2-storyboard.png)
+![Six panel storyboard — the minimum viable loop](/DECO2017/assets/post2-storyboard.png)
 *Figure 1: Six moments the system must support — everything
 in the requirements list exists to serve this sequence.*
 
@@ -98,7 +98,7 @@ comparison was also cut.
 
 ---
 
-![Requirements priority diagram](../assets/post2-requirements.png)
+![Requirements priority diagram](/DECO2017/assets/post2-requirements.png)
 *Figure 2: Requirements mapped by priority — what the
 annotation loop depends on, what enhances it, and what
 was cut.*
@@ -111,17 +111,17 @@ Before writing any code, we sketched the key interfaces to
 test whether the requirements were buildable as described.
 Each wireframe maps directly to a functional requirement.
 
-![Gallery wireframe](../assets/post2-wireframe-gallery.png)
+![Gallery wireframe](/DECO2017/assets/post2-wireframe-gallery.png)
 *Figure 3: Gallery wireframe — artwork cards with critique
 counts, search, upload button. Confirms the gallery needs
 no complex data beyond artwork metadata.*
 
-![Artwork view wireframe](../assets/post2-wireframe-artwork.png)
+![Artwork view wireframe](/DECO2017/assets/post2-wireframe-artwork.png)
 *Figure 4: Artwork view wireframe — annotation pins, comment
 sidebar, category filter pills. Every element maps to a core
 requirement from the list above.*
 
-![Three panel user flow wireframe](../assets/post2-wireframe-flow.png)
+![Three panel user flow wireframe](/DECO2017/assets/post2-wireframe-flow.png)
 *Figure 5: Three-step flow — gallery to canvas to annotation
 submission. HTMX labelled at the point of submit, confirming
 no page reload is a design requirement not just a technical

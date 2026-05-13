@@ -20,7 +20,7 @@ uncovering unmet needs — and crucially, the standout feature
 must only make sense for a particular community. This became
 the core filter for evaluating all ideas.
 
-![Brief breakdown diagram](../assets/brief-breakdown.png)
+![Brief breakdown diagram](/DECO2017/assets/brief-breakdown.png)
 *Figure 1: Deconstructing the Bla+Bla brief — four constraint
 layers that shaped how I evaluated every idea.*
 
@@ -80,7 +80,7 @@ Exciting and original.
 click-to-annotate feedback layer for artwork. And a similar
 idea applied to UI patterns for design students.
 
-![11 ideas across four clusters](../assets/brief-ideas.png)
+![11 ideas across four clusters](/DECO2017/assets/brief-ideas.png)
 *Figure 2: All 11 ideas visualised by cluster — each
 category has a different interaction model at its core.*
 
