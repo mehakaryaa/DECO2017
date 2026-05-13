@@ -31,6 +31,7 @@ function applyTemplate(template, replacements) {
 
   for (const key in replacements) {
     output = output.replaceAll(`{{${key}}}`, replacements[key]);
+    output = output.replace(/src="assets\//g, 'src="/DECO2017/assets/');
   }
 
   return output;
