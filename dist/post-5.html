@@ -3,7 +3,7 @@
 
 <head>
     <title>Building It - Stack Decisions, Design Choices, and What Changed</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/DECO2017/assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css" media="(prefers-color-scheme: light)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css" media="(prefers-color-scheme: dark)">
 </head>
@@ -55,7 +55,7 @@ HTML partials natively. When HTMX fires after submission,
 MojoJS returns a rendered HTML fragment — just the new pin.
 React or Vue would have added client-side complexity without
 solving any requirement these two tools do not already handle.</p>
-<p><img src="assets/post4-architecture.png" alt="Stack architecture diagram">
+<p><img src="/DECO2017/assets/post4-architecture.png" alt="Stack architecture diagram">
 <em>Figure 1: One user click travels through four layers and
 returns as an HTML partial — canvas state preserved, no
 full page reload.</em></p>
@@ -94,14 +94,14 @@ faint paint trail. This was not in any requirements document
 — it emerged from using the prototype and noticing it felt
 static. Minimal implementation time, immediate community
 identity. Some decisions cannot be planned.</p>
-<p><img src="assets/post4-login.png" alt="Login page with paintbrush cursor effect">
+<p><img src="/DECO2017/assets/post4-login.png" alt="Login page with paintbrush cursor effect">
 <em>Figure 2: Login page — paintbrush cursor effect. Community
 identity communicated before a single click.</em></p>
-<p><img src="assets/post4-upload.png" alt="Upload form showing file constraints">
+<p><img src="/DECO2017/assets/post4-upload.png" alt="Upload form showing file constraints">
 <em>Figure 3: Upload form — JPEG or PNG, max 10MB. File size
 constraint visible in the UI, connected to the persistence
 requirement.</em></p>
-<p><img src="assets/post4-annotation.png" alt="Annotation interaction mid-flow">
+<p><img src="/DECO2017/assets/post4-annotation.png" alt="Annotation interaction mid-flow">
 <em>Figure 4: Annotation mid-flow — comment input open, category
 selector visible. HTMX fires on submit, canvas state
 preserved.</em></p>
