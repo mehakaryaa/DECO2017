@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>From Requirements to Reality - Data, Structure, and Flow</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css" media="(prefers-color-scheme: dark)">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-main">Critique</span>
+        <span class="logo-accent">Canvas</span>
+        <span class="logo-sub">Dev Blog</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Posts</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-page">
+    <a href="index.html" class="back-link">← All posts</a>
+    <div class="post-header">
+      <p class="post-number-label">Blog 4</p>
+      <h1>From Requirements to Reality - Data, Structure, and Flow</h1>
+      <p class="post-meta">2026-05-05 · Mehak Arya</p>
+    </div>
+    <article>
+      <p><strong>Planning on paper is easy. The moment you try to build a
+data model, requirements get tested for real.</strong></p>
+<p>Blog 3 defined what the system must do. This post is about
+translating that into structure — and what changed when we did.</p>
+<hr>
+<h2>Two design decisions before the data model</h2>
+<p><strong>Decision 1: Medium categories, not discipline sections</strong></p>
+<p>Our tutor pushed us to think more carefully about the community.
+The instinct was to create separate sections for illustrators,
+photographers, painters. But that would fragment a community
+that shares the same core need — spatial, precise critique. A
+photographer pinning &quot;exposure is off here&quot; to a specific area
+of an image uses Critique Canvas identically to an illustrator
+pinning &quot;anatomy feels wrong here.&quot;</p>
+<p>The solution was simpler: one <code>medium</code> field on the artwork
+table. Photography, Illustration, Digital Art, Traditional Art.
+One column, one gallery filter, no fragmentation. The community
+stays unified; the gallery becomes navigable.</p>
+<p><strong>Decision 2: Adding a homepage</strong></p>
+<p>The original page structure went straight from login to gallery
+— which assumed users already knew what they were doing. A
+homepage was missing: somewhere that orients new members,
+surfaces featured work, and makes the community feel like a
+place rather than a database. This added one page to the
+structure and nothing to the data model.</p>
+<p><img src="../assets/post3-sitemap.png" alt="Updated sitemap with homepage">
+<em>Figure 1: Updated sitemap — homepage added between login
+and gallery. One new page, no new database tables.</em></p>
+<p><img src="../assets/post3-gallerypage_png_.png" alt="Gallery and homepage live">
+<em>Figure 2: Current gallery page — hero section and artwork cards
+showing, the homepage addition is planned but not yet implemented.</em></p>
+<hr>
+<h2>Building the ERD — and what it removed</h2>
+<p>Three tables support the system: <code>artworks</code>, <code>annotations</code>,
+and <code>users</code>.</p>
+<p><code>artworks</code> stores filename, uploader user ID, timestamp, medium
+category, and a boolean for the critique toggle. One artwork has
+many annotations — a one-to-many relationship that SQLite
+handles cleanly with a foreign key.</p>
+<p><code>annotations</code> stores comment text, <code>x_percent</code> and <code>y_percent</code>
+as floats, an optional category tag, the artwork ID, and the
+commenter&#39;s user ID. Every field connects directly to a
+requirement — the percentage coordinates exist because of the
+responsive accuracy decision from Blog 3.</p>
+<p><code>users</code> is owned by Bla+Bla auth. We read the user ID from the
+session cookie but do not write to this table.</p>
+<p>Building the ERD removed two fields that seemed obvious at
+first: an annotation timestamp and a helpfulness upvote counter.
+Neither could be connected to any behaviour the system must
+support right now. If a field has no requirement, it has no
+place in the schema.</p>
+<blockquote>
+<p>The ERD did not just implement the requirements — it <strong>tested</strong>
+them. Two fields failed that test and were cut.</p>
+</blockquote>
+<p><img src="../assets/post3-erd.png" alt="ERD showing artworks annotations and users tables">
+<em>Figure 3: ERD — three tables, every field justified by a
+functional requirement. Upvote counter removed, timestamp
+kept for display only.</em></p>
+<hr>
+<h2>Mapping the annotation flow</h2>
+<p>With the data model confirmed, the annotation user flow maps
+cleanly. User clicks the artwork — coordinates captured. Comment
+form appears inline via HTMX — no reload. User submits — MojoJS
+route receives the data, writes to SQLite, returns an HTML
+partial. HTMX swaps the partial into the page. Pin appears at
+the correct position. If the user cancels, nothing is written.</p>
+<p>One genuine decision point: submit or cancel. That simplicity
+is reassuring — the core interaction is stable enough to build
+on confidently.</p>
+<p><img src="../assets/post3-userflow.png" alt="UF1 annotation user flow">
+<em>Figure 4: UF1 — one decision point, two paths. HTMX partial
+update fires on submit, preserving the spatial view.</em></p>
+<hr>
+<h2>Where things stand</h2>
+<p>The annotation table is live. Coordinates are storing correctly.
+The HTMX partial is returning pins without page reload.</p>
+<p><img src="../assets/post3-artworkview.png" alt="Annotation pins live on a painting">
+<em>Figure 5: The annotation layer live — three pins anchored
+to specific regions of a painting, comment sidebar showing
+real critique with category tags. Percentage-based coordinates
+rendering correctly in the browser.</em></p>
+<p>The open question from Blog 3 — whether percentage-based
+coordinates hold across screen sizes — is now being tested.
+Early results are promising but not yet confirmed across all
+viewports.</p>
+<blockquote>
+<p>The next step is the hardest: not building new features, but
+making sure what exists is <strong>stable, accessible, and correct</strong>
+before anything else is added.</p>
+</blockquote>
+
+    </article>
+    <ul class="tags-list">
+      <span class="tag">data-model</span><span class="tag">user-flow</span><span class="tag">design-decisions</span><span class="tag">system-design</span>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Mehak Arya · DECO2017 · University of Sydney · 2026</p>
+  </footer>
+</body>
+
+</html>

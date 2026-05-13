@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Building Responsibly - Evaluation, Accessibility, and Data</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css" media="(prefers-color-scheme: dark)">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-main">Critique</span>
+        <span class="logo-accent">Canvas</span>
+        <span class="logo-sub">Dev Blog</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Posts</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-page">
+    <a href="index.html" class="back-link">← All posts</a>
+    <div class="post-header">
+      <p class="post-number-label">Blog 6</p>
+      <h1>Building Responsibly - Evaluation, Accessibility, and Data</h1>
+      <p class="post-meta">2026-05-13 · Mehak Arya</p>
+    </div>
+    <article>
+      <p><strong>Stability is not the same as correctness.</strong> Blog 5 ended
+with the prototype stable. This post asks a harder question:
+does it work correctly for every user — not just those who
+use it as expected?</p>
+<hr>
+<h2>Evaluating usability</h2>
+<p>The core interaction — clicking an artwork to leave a pinned
+annotation — is spatially unusual, a genuine usability risk.</p>
+<p>I would run a task-based test with two or three artists
+unfamiliar with Critique Canvas. Task: leave a critique on a
+specific area. No instructions given. I would observe where
+they hesitate and whether they find the annotation without
+prompting.</p>
+<p>The failure I am watching for: users who type in the text
+field below instead of clicking the canvas. To mitigate this,
+a helper prompt was added: <em>&quot;Click anywhere on the artwork
+to leave a pin.&quot;</em> Additional implementations include a cookie
+consent banner, a skip link for keyboard navigation, and
+visible focus styles on all interactive elements. Whether
+these are sufficient will be confirmed through the test.</p>
+<p><img src="../assets/post5-usability.png" alt="Usability test scenario">
+<em>Figure 1: Task-based test — success and failure paths,
+with interface fix identified.</em></p>
+<p>For performance, the brief requires load times under three
+seconds. The main risk is uncompressed image uploads. I would
+test using browser developer tools across artworks of varying
+file sizes.</p>
+<hr>
+<h2>Accessibility — specific to this interface</h2>
+<p>The brief requires AA compliance. For Critique Canvas this
+has a specific implication: pins are inherently visual and
+pointer-dependent. A keyboard user cannot click a coordinate.</p>
+<p>This is why the accessible list view is not optional — it is
+a parallel interface. Every pin must exist as text below the
+artwork, attributed to category and author. A screen reader
+user should access every annotation without needing the canvas.</p>
+<p>WCAG 2.1 AA checks implemented and planned:</p>
+<ul>
+<li><strong>Contrast ratios</strong> — category pills, tooltip text against dark overlay</li>
+<li><strong>Keyboard navigation</strong> — tab order through annotation list, visible focus states</li>
+<li><strong>Form labels</strong> — comment input needs explicit labels, not placeholder text only</li>
+<li><strong>Alt text</strong> — upload form prompts artists for image description</li>
+<li><strong>Skip link</strong> — appears on Tab press, jumps to main content</li>
+<li><strong>Cookie consent</strong> — dismissable banner, screen reader accessible with aria-live</li>
+</ul>
+<p><img src="../assets/post5-accessibility.png" alt="Artwork view with accessibility considerations mapped">
+<em>Figure 2: Accessibility mapped to the real interface.</em></p>
+<p><img src="../assets/post5-wcag.png" alt="WCAG 2.1 AA checklist">
+<em>Figure 3: Four WCAG AA checks mapped to specific interface elements.</em></p>
+<hr>
+<h2>Responsibility and data</h2>
+<p>Critique Canvas stores two categories of user content —
+uploaded artworks and annotations — each with different
+responsibilities.</p>
+<p>Artworks are personal creative work. Artists have not
+consented to redistribution. Image serving should route
+through authenticated endpoints rather than exposing direct
+file URLs. The upload flow should include clear terms stating
+work is shared within the community only.</p>
+<p>Annotations are tied to session IDs — personal data under
+Australian Privacy Act principles and GDPR where users access
+from the EU. Users should be able to delete their own
+annotations, and data should not be retained beyond feature
+need. The EU cookie compliance requirement is addressed
+through a dismissable consent banner before any non-essential
+tracking.</p>
+<p><img src="../assets/post5-data.png" alt="Data responsibility diagram">
+<em>Figure 4: Two data categories treated separately
+with different obligations.</em></p>
+<p>Three secondary features under consideration each introduce
+responsibility questions that require answers before launch.
+Collab Roulette raises consent questions around identity
+sharing between paired users. The collaborative comic chain
+raises co-ownership questions over jointly created work. The
+artwork mood canvas raises questions around placing others&#39;
+artwork without explicit permission. These are not blockers -
+they are design decisions that need answers before features
+ship.</p>
+<p><img src="../assets/post5-features.png" alt="Three secondary features planned for the homepage">
+<em>Figure 5: Three features considered for the homepage —
+each with a specific responsibility concern to resolve
+before implementation.</em></p>
+<hr>
+<h2>Reflection</h2>
+<p>Looking back across all six blogs, the concept held. The
+requirements from Blog 3 drove the data model in Blog 4,
+which informed the stack decisions in Blog 5. This post
+reveals that the accessible list view was never optional -
+it should have been framed as a core requirement from the
+start. Building responsibly meant returning to earlier
+decisions and asking whether they held up.</p>
+<blockquote>
+<p>Good design is not just functional and usable. It is
+<strong>responsible by default</strong> — not patched for compliance
+at the end.</p>
+</blockquote>
+
+    </article>
+    <ul class="tags-list">
+      <span class="tag">evaluation</span><span class="tag">accessibility</span><span class="tag">responsibility</span><span class="tag">compliance</span>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Mehak Arya · DECO2017 · University of Sydney · 2026</p>
+  </footer>
+</body>
+
+</html>

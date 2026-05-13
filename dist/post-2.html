@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Why Critique Canvas Won</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css" media="(prefers-color-scheme: dark)">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-main">Critique</span>
+        <span class="logo-accent">Canvas</span>
+        <span class="logo-sub">Dev Blog</span>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Posts</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-page">
+    <a href="index.html" class="back-link">← All posts</a>
+    <div class="post-header">
+      <p class="post-number-label">Blog 2</p>
+      <h1>Why Critique Canvas Won</h1>
+      <p class="post-meta">2026-04-24 · Mehak Arya</p>
+    </div>
+    <article>
+      <p><strong>Blog 1 ended with three finalists.</strong> Collab Roulette,
+VibeShelf, and Critique Canvas all passed the brief&#39;s
+elimination criteria. This post is about the harder
+decision — and what making it revealed about the community.</p>
+<hr>
+<h2>Identifying the Real Problem</h2>
+<p>I focused on emerging artists and illustrators, a community
+I personally belong to. My early assumption was that artists
+need visibility and engagement. However, platforms like
+Instagram and Reddit already provide this. The real issue
+is not sharing work, but <strong>what happens after</strong>. Feedback
+is often vague (<em>&quot;nice colours&quot;</em>) or non-specific
+(<em>&quot;anatomy feels off&quot;</em>), making it genuinely difficult
+to act on.</p>
+<p>Before committing to this direction, I observed several
+online artist communities — Reddit&#39;s r/ArtFundamentals and
+r/learnart, Behance, DeviantArt, and Pinterest boards. The
+pattern was identical across all of them: comments floated
+below the image, disconnected from the work itself. The gap
+is structural, not accidental.</p>
+<p>Existing platforms treat feedback as text detached from the
+artwork. This ignores how artists think — visually and
+spatially. In real studio critique, feedback is point-based:
+circling areas, drawing directly on work, pointing to
+specific regions. Digital platforms flatten this into comment
+threads, removing context and precision.</p>
+<blockquote>
+<p>The issue is not lack of feedback, but lack of
+<strong>contextual, actionable critique.</strong></p>
+</blockquote>
+<hr>
+<h2>Why the Other Two Failed</h2>
+<p><strong>Collab Roulette</strong> was the most exciting idea. Randomly
+pairing two creatives for a 24-hour micro-challenge —
+nothing like it exists. But it required real-time matching,
+shared session states, and prompt generation. Together these
+pointed toward an unstable prototype — ambitious on paper,
+fragile in practice.</p>
+<p><strong>VibeShelf</strong> mapped how books feel to read on a 2D canvas.
+Genuinely novel — Goodreads cannot replicate it. But it
+depended on an external API, a single point of failure if
+it rate-limits or changes.</p>
+<p><strong>Critique Canvas</strong> aligned across every criterion: clear
+community pain point, no external dependencies, novel
+interaction that Instagram and DeviantArt structurally
+cannot offer, and direct mapping to the required stack —
+coordinate storage in SQLite, inline updates via HTMX,
+server-rendered templates in MojoJS.</p>
+<p><img src="../assets/comparison-table.png" alt="Concept comparison table">
+<em>Figure 1: Three finalists evaluated — decision based on
+scope stability and feasibility, not creativity alone.</em></p>
+<blockquote>
+<p>The decision was not based on creativity alone, but on
+<strong>scope stability and feasibility</strong> under real constraints.</p>
+</blockquote>
+<hr>
+<h2>Final Direction: Critique Canvas</h2>
+<p>Critique Canvas is an <strong>interactive feedback layer for
+artwork</strong>. Users upload an artwork; others click directly
+on specific areas; each click creates a comment linked to
+<em>(x, y) coordinates</em>; feedback renders as anchored
+annotations; HTMX enables live updates without page reloads.
+This shifts critique from general comments into <strong>spatial,
+precise feedback</strong> embedded directly within the artwork.</p>
+<p><img src="../assets/annotation-pins.png" alt="Annotation concept — pins anchored to specific regions">
+<em>Figure 2: The core interaction — annotations anchored to
+specific regions, not floating in a comment thread below.</em></p>
+<hr>
+<h2>Early Functional Requirements <em>(Evolving)</em></h2>
+<p><strong>Core — must have:</strong></p>
+<ul>
+<li>Upload and persist artwork images</li>
+<li>Click-based annotation capturing coordinates</li>
+<li>Store annotations linked to user and artwork</li>
+<li>Render annotations at correct positions</li>
+<li>HTMX-driven inline updates</li>
+</ul>
+<p><strong>Secondary — not load-bearing:</strong>
+Category filtering and an accessible list view would
+enhance usability once the annotation loop is stable, but
+neither is essential. Visual density indicators were
+deprioritised entirely — they add complexity without
+improving critique quality.</p>
+<hr>
+<h2>Ambiguities and Open Questions</h2>
+<p>Several constraints remain unresolved:</p>
+<ul>
+<li>How reliably coordinates map across <strong>responsive layouts</strong></li>
+<li>How to manage <strong>annotation overlap</strong> and visual clutter</li>
+<li>Whether mobile interaction requires a <strong>separate pattern</strong></li>
+<li>How performance scales with <strong>dense annotation data</strong></li>
+</ul>
+<p>These are design constraints shaping later technical
+decisions — not problems to avoid.</p>
+<hr>
+<h2>Reflection</h2>
+<p>This process was about <strong>elimination rather than expansion</strong>.
+Critique Canvas emerged not as the most feature-rich idea,
+but as the only one satisfying the brief&#39;s core requirement:
+a community-specific interaction that cannot exist on generic
+platforms.</p>
+<blockquote>
+<p>The requirements are intentionally incomplete — the next
+step is validating feasibility through data modelling,
+interaction design, and implementation constraints.</p>
+</blockquote>
+
+    </article>
+    <ul class="tags-list">
+      <span class="tag">concept-development</span><span class="tag">functional-requirements</span><span class="tag">ideation</span>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Mehak Arya · DECO2017 · University of Sydney · 2026</p>
+  </footer>
+</body>
+
+</html>
