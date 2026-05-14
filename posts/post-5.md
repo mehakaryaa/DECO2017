@@ -92,6 +92,11 @@ faint paint trail. This was not in any requirements document
 static. Minimal implementation time, immediate community
 identity. Some decisions cannot be planned.
 
+This reflects a principle the brief implies but doesn't state:
+the community's identity should be legible before any
+interaction begins. A paintbrush cursor communicates "this
+is a creative space" in the same moment the user arrives.
+
 ![Login page with paintbrush cursor effect](/DECO2017/assets/post4-login.png)
 *Figure 2: Login page — paintbrush cursor effect. Community
 identity communicated before a single click.*
