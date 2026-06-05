@@ -1,7 +1,7 @@
 ---
 title: "Working vs. Working Well — A Final Evaluation of Critique Canvas"
 post_number: Blog 7
-date: 2026-06-05
+date: 2026-06-01
 author: Mehak Arya
 summary: A final evaluation of Critique Canvas — what the data actually means, what four users taught me, and an honest reckoning with every requirement I wrote in planning.
 tags:
@@ -80,7 +80,7 @@ Each method surfaced different issues: Lighthouse identified performance bottlen
 
 ### User testing
 
-Four friends tested the prototype in two ways: two structured tasks followed by a free exploration of the full site. While four participants is a small sample, the goal was not statistical validity but identifying major usability issues and points of confusion in first-time use. Four participants were sufficient to identify recurring interaction patterns, although a larger sample would likely reveal less common usability issues.
+Four friends tested the prototype in two ways: two structured tasks followed by a free exploration of the full site. While four participants is a small sample, the goal was not statistical validity but identifying major usability issues and points of confusion in first-time use. Four participants were sufficient to identify recurring interaction patterns, although a larger sample would likely reveal less common usability issues. All four participants successfully completed both Task 1 and Task 2 without assistance or intervention.
 
 **Task 1 — Leave a critique on an artwork.** This tested the core annotation interaction — the most novel and potentially confusing interaction in the application.
 
@@ -110,12 +110,14 @@ User testing also revealed minor **friction points** that the interface handles 
 
 In each case, the system caught the error and communicated it clearly.
 
-The **drawing canvas for Story Chain** produced the strongest reaction. None of the four testers expected to draw directly in the browser. That alignment between technical ambition and genuine user delight is what makes a feature feel like it belongs.
+One outcome I did not anticipate was the reaction to the in-browser drawing canvas. Unlike the annotation interaction, which required brief discovery, all four testers engaged with the drawing canvas immediately and intuitively — none required guidance. This suggests that familiar tool metaphors (brush, eraser, colour picker) significantly reduce cognitive load even when the feature itself is technically complex. The interaction pattern was novel in context but not in concept. That alignment between technical ambition and genuine user delight is what makes a feature feel like it belongs.
 
 ![Story Chain panel grid showing 7 of 8 panels submitted with draw or upload options visible](assets/story-chain-grid.png)
 *Story Chain — sequential panels, 2-hour claim window, and an in-browser drawing canvas. Panel 8 locked until the previous panel is submitted.*
 
 The Collab Roulette flow — spin, match, chat, submit — is coherent when tested across two sessions.
+![Collab Roulette showing spin wheel and interest category preferences](assets/collab-roulette.png)
+*Collab Roulette — interest-based smart matching, 24-hour creative challenge window, and responsible data handling through automatic chat deletion on expiry.*
 
 ### Responsible design
 
@@ -142,7 +144,7 @@ Accessibility was evaluated using a **multi-method approach**: Lighthouse automa
 ![WebAIM contrast checker showing 2.83:1 ratio and WCAG AA Fail for white text on orange](assets/wcag-contrast.png)
 *White text on orange (#ff6b35) fails WCAG AA at 2.83:1. A deliberate brand decision — documented as an intentional trade-off, not an oversight.*
 
-This was a deliberate brand decision. Orange is the single accent colour across the entire design system, and reducing its saturation would undermine visual coherence throughout. All other text elements passed contrast requirements.
+This was a deliberate brand decision. Orange is the single accent colour across the entire design system, and reducing its saturation would undermine visual coherence throughout. However, this highlights a real tension between branding and accessibility standards. In future iterations, a slightly darker variant of the same brand colour would likely preserve visual identity while achieving WCAG AA compliance. All other text elements passed contrast requirements.
 
 At **375px mobile width**, the layout reflows correctly — horizontal sections stack vertically, content remains readable, meeting *WCAG 1.4.10 (Reflow)* and *WCAG 1.4.4 (Resize Text)*.
 
@@ -212,6 +214,10 @@ The one requirement most misjudged was **keyboard accessibility on the login pag
 
 The most honest reassessment is this: **requirements tested against specific user scenarios held up. Requirements assumed without evidence needed fixing.** This suggests the original requirements were specific enough to guide implementation but not comprehensive enough to anticipate the performance and accessibility concerns that emerged later.
 
+### Evaluation limitations
+
+The evaluation has limitations worth acknowledging. User testing involved four participants from a similar demographic, and all testing occurred within a controlled, familiar environment. Different audiences, assistive technology users, or longer-term use may reveal issues not identified during this evaluation. The findings should therefore be interpreted as evidence of major usability patterns rather than comprehensive validation. A follow-up evaluation with a broader participant group and screen reader testing would strengthen the accessibility claims in particular.
+
 ---
 
 ## Lessons Learned
@@ -221,5 +227,7 @@ The most valuable lesson from this project was that implementation is rarely the
 Early planning focused on features and functionality. Through testing and evaluation, I learned that seemingly small decisions — image compression, keyboard navigation, onboarding cues, mobile responsiveness — often have a **larger impact on user experience than major architectural choices**. Users notice friction before they notice architecture.
 
 Several significant issues only became visible after testing across real devices and with real users. This reinforced that **evaluation is not a phase at the end of development — it is a practice woven through every iteration**. The responsive bug, the login keyboard gap, the image performance problem — all were discoverable earlier. They were discovered late because evaluation was treated as a checklist, not a habit.
+
+Looking further ahead, Critique Canvas has genuine potential beyond this prototype. The core spatial annotation model could extend to design critiques, UI reviews, or educational feedback on student work — any context where precise, location-based feedback matters more than general comments. Collab Roulette could evolve into a structured community challenge system with public submission galleries and community voting. Story Chain could support multiple simultaneous narratives with different themes, removing the sequential bottleneck that currently limits participation. These are not just feature additions — they are architectural evolutions that the current prototype is deliberately built to support. The foundation is stable. The direction is clear.
 
 > That gap between plan and outcome is not a failure. It is evidence that requirements, prototypes, and assumptions only become meaningful once they encounter real users. More than any individual feature, that was the most valuable lesson from building Critique Canvas.
