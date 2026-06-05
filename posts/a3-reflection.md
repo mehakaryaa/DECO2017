@@ -1,7 +1,7 @@
 ---
 title: "Working vs. Working Well — A Final Evaluation of Critique Canvas"
 post_number: Blog 7
-date: 2026-06-01
+date: 2026-06-05
 author: Mehak Arya
 summary: A final evaluation of Critique Canvas — what the data actually means, what four users taught me, and an honest reckoning with every requirement I wrote in planning.
 tags:
