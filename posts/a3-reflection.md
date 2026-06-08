@@ -1,7 +1,7 @@
 ---
 title: "Working vs. Working Well — A Final Evaluation of Critique Canvas"
 post_number: Blog 7
-date: 2026-06-05
+date: 2026-06-08
 author: Mehak Arya
 summary: A final evaluation of Critique Canvas — what the data actually means, what four users taught me, and an honest reckoning with every requirement I wrote in planning.
 tags:
@@ -54,7 +54,7 @@ Beyond load times, the system was tested against a **range of inputs and error c
 - The sequential panel lock is enforced server-side — a crafted POST request to claim an out-of-order slot is rejected, not silently accepted
 - Collab Roulette chat is disabled and messages are **permanently deleted from the database** after 24 hours
 
-These behaviours were verified by attempting edge cases directly — submitting wrong file types, crafting out-of-order panel requests, simulating API failures, and letting claim timers expire. In every case the system rejected invalid inputs, completed gracefully, or cleaned up data as designed. No edge case produced unexpected behaviour or data corruption.
+These behaviours were verified by attempting edge cases directly — submitting wrong file types, crafting out-of-order panel requests, simulating API failures, and letting claim timers expire. In every case the system rejected invalid inputs, completed gracefully, or cleaned up data as designed. No edge case produced unexpected behaviour or data corruption. 92/92 integration tests covering core routes, authentication flow, file upload, and model behaviour were all passing at submission — a further layer of evidence that the system handles inputs correctly across all primary flows.
 
 > As a developer, it is tempting to celebrate that nothing breaks. Users, however, rarely distinguish between a bug and a 12-second wait. Both feel like friction.
 
@@ -117,14 +117,18 @@ One outcome I did not anticipate was the reaction to the in-browser drawing canv
 ![Story Chain panel grid showing 7 of 8 panels submitted with draw or upload options visible](assets/story-chain-grid.png)
 *Story Chain — sequential panels, 2-hour claim window, and an in-browser drawing canvas. Panel 8 locked until the previous panel is submitted.*
 
-The Collab Roulette flow — spin, match, chat, submit — is coherent when tested across two sessions.
+The sequential panel lock created a different kind of experience — anticipation. Knowing that panel N only unlocks after panel N-1 forces contributors to build on what came before rather than working in isolation. In testing this felt like a constraint that served the concept rather than limiting it. The 2-hour claim window added urgency without pressure — enough time to contribute thoughtfully, not so much that the chain stalls indefinitely.
+
+The Collab Roulette flow — spin, match, chat, submit — is coherent when tested across two sessions. The smart matching system — prioritising partners with shared interest categories before falling back to random — was invisible to testers in the best possible way. They experienced a match, not an algorithm. That invisibility is what good design infrastructure feels like.
 
 ![Collab Roulette showing spin wheel and interest category preferences](assets/collab-roulette.png)
 *Collab Roulette — interest-based smart matching, 24-hour creative challenge window, and responsible data handling through automatic chat deletion on expiry.*
 
 ### Responsible design
 
-The 24-hour chat window closing automatically and deleting messages from the database is invisible to users when it works correctly — no error, no warning, just a feature that behaves as expected. A cookie consent banner informs users on first login that only essential session cookies are used. That invisibility is exactly what responsible design should feel like.
+Responsible design was not an afterthought in this application — it shaped several core decisions. The 24-hour Collab Roulette chat window closes automatically and deletes messages from the database entirely, not just hides them from the UI. This reflects a data minimisation principle: chat data has no value after the challenge ends, so retaining it would be an unnecessary risk. A cookie consent banner informs users on first login that only essential session cookies are used — no tracking, no advertising, no third-party data sharing.
+
+The file upload system validates type and size server-side and protects against path traversal attacks — a deliberate security decision, not a default. Session data is minimal: only `userId` and `profileName` are stored, nothing beyond what is needed to identify the current user. These decisions were made at the design stage, not patched in at the end. Responsible design only works that way.
 
 ### Accessibility
 
